@@ -24,7 +24,7 @@ class Unipin
         $this->path = $path;
 
         $baseUrl = config('unipin.base_url');
-        if (!str_ends_with($baseUrl, '/')) {
+        if (! str_ends_with($baseUrl, '/')) {
             $baseUrl .= '/';
         }
 
@@ -49,6 +49,6 @@ class Unipin
         $unix = $this->timestamp;
         $path = $this->path;
 
-        return hash_hmac('sha256',$api_key . $unix.$path, $api_secret);
+        return hash_hmac('sha256', $api_key . $unix.$path, $api_secret);
     }
 }

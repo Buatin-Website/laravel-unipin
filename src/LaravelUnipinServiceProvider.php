@@ -2,9 +2,9 @@
 
 namespace Buatin\LaravelUnipin;
 
+use Buatin\LaravelUnipin\Commands\LaravelUnipinCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Buatin\LaravelUnipin\Commands\LaravelUnipinCommand;
 
 class LaravelUnipinServiceProvider extends PackageServiceProvider
 {
@@ -25,10 +25,10 @@ class LaravelUnipinServiceProvider extends PackageServiceProvider
     public function registeringPackage()
     {
         $this->app->bind('unipin', function () {
-            return new Unipin;
+            return new Unipin();
         });
         $this->app->bind('unipin-in-game-topup', function () {
-            return new UnipinInGameTopup;
+            return new UnipinInGameTopup();
         });
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Buatin\LaravelUnipin;
 
-use \Buatin\LaravelUnipin\Facades\Unipin;
+use Buatin\LaravelUnipin\Facades\Unipin;
 use Exception;
 
 class UnipinInGameTopup
@@ -16,6 +16,7 @@ class UnipinInGameTopup
     {
         try {
             $response = Unipin::makeRequest('/in-game-topup/list');
+
             return $response['game_list'];
         } catch (Exception $e) {
             return $e->getMessage();
@@ -33,7 +34,7 @@ class UnipinInGameTopup
         try {
             return Unipin::makeRequest('/in-game-topup/detail', [
                 'game_code' => $gameCode,
-                'description' => true
+                'description' => true,
             ]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -48,7 +49,7 @@ class UnipinInGameTopup
         try {
             return Unipin::makeRequest('/in-game-topup/user/validate', [
                 'game_code' => $gameCode,
-                'fields' => $fields
+                'fields' => $fields,
             ]);
         } catch (Exception $e) {
             return $e->getMessage();

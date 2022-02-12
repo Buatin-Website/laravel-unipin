@@ -1,6 +1,6 @@
 <?php
 
-use \Buatin\LaravelUnipin\Facades\UnipinInGameTopup;
+use Buatin\LaravelUnipin\Facades\UnipinInGameTopup;
 
 it('can get in game topup list', function () {
     $gameList = UnipinInGameTopup::getGameList();
@@ -15,7 +15,7 @@ it('can\'t get in game topup detail (game not found)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid Game Code',
-            'code' => 704
+            'code' => 704,
         ],
     ]);
 });
