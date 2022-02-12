@@ -18,8 +18,17 @@ class LaravelUnipinServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-unipin')
             ->hasConfigFile()
-            ->hasViews()
             ->hasMigration('create_laravel-unipin_table')
             ->hasCommand(LaravelUnipinCommand::class);
+    }
+
+    public function registeringPackage()
+    {
+        $this->app->bind('unipin', function () {
+            return new Unipin;
+        });
+        $this->app->bind('unipin-in-game-topup', function () {
+            return new UnipinInGameTopup;
+        });
     }
 }
