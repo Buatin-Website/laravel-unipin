@@ -2,9 +2,9 @@
 
 namespace Buatin\LaravelUnipin\Tests;
 
+use Buatin\LaravelUnipin\LaravelUnipinServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Buatin\LaravelUnipin\LaravelUnipinServiceProvider;
 
 class TestCase extends Orchestra
 {

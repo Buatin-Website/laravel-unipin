@@ -2,9 +2,9 @@
 
 namespace Buatin\LaravelUnipin;
 
+use Buatin\LaravelUnipin\Commands\LaravelUnipinCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Buatin\LaravelUnipin\Commands\LaravelUnipinCommand;
 
 class LaravelUnipinServiceProvider extends PackageServiceProvider
 {
