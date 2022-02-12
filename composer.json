@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "buatin/laravel-unipin",
+    "description": "Integrate laravel with Unipin",
     "keywords": [
-        ":vendor_name",
+        "buatin",
         "laravel",
-        ":package_slug"
+        "laravel-unipin"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/buatin/laravel-unipin",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Buatin Website",
+            "email": "tolong@buatin.website",
             "role": "Developer"
         }
     ],
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Buatin\\LaravelUnipin\\": "src",
+            "Buatin\\LaravelUnipin\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Buatin\\LaravelUnipin\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Buatin\\LaravelUnipin\\LaravelUnipinServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelUnipin": "Buatin\\LaravelUnipin\\Facades\\LaravelUnipin"
             }
         }
     },

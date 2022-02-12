@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Buatin\LaravelUnipin\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelUnipinCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-unipin';
 
     public $description = 'My command';
 
