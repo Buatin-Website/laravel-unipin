@@ -60,6 +60,7 @@ class Unipin
     public function fetchGame(): array
     {
         DB::beginTransaction();
+
         try {
             $gameList = UnipinInGameTopup::getGameList();
             foreach ($gameList as $game) {
@@ -75,7 +76,7 @@ class Unipin
                 ]);
 
                 $gameDetail = UnipinInGameTopup::getGameDetail($game['game_code']);
-                if (!$gameDetail['status']) {
+                if (! $gameDetail['status']) {
                     continue;
                 }
 
@@ -106,6 +107,7 @@ class Unipin
             ];
         } catch (Exception $e) {
             DB::rollBack();
+
             return [
                 'status' => false,
                 'message' => $e->getMessage(),

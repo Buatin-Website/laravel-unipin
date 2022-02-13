@@ -45,7 +45,7 @@ it('can\'t validate user (Invalid Game Code)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid Game Code',
-            'code' => 704
+            'code' => 704,
         ],
     ]);
 });
@@ -60,21 +60,21 @@ it('can\'t validate user (Invalid User ID)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid User ID or Zone ID',
-            'code' => 727
+            'code' => 727,
         ],
     ]);
 });
 
 it('can\'t validate user (Missing Parameter - zoneid)', function () {
     $validateUser = UnipinInGameTopup::validateUser('MLBBD_ID', [
-        'userid' => faker()->userName
+        'userid' => faker()->userName,
     ]);
 
     expect($validateUser)->toMatchArray([
         'status' => false,
         'error' => [
             'message' => 'Missing Parameter - zoneid',
-            'code' => 701
+            'code' => 701,
         ],
     ]);
 });
@@ -124,7 +124,7 @@ it('can\'t create order (Invalid denomination_id)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid denomination_id',
-            'code' => 707
+            'code' => 707,
         ],
     ]);
 });

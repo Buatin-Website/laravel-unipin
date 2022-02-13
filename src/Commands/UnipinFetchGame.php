@@ -17,9 +17,11 @@ class UnipinFetchGame extends Command
         $fetchGame = Unipin::fetchGame();
         if ($fetchGame['status']) {
             $this->info($fetchGame['message']);
+
             return self::SUCCESS;
         } else {
             $this->error($fetchGame['message']);
+
             return self::FAILURE;
         }
     }

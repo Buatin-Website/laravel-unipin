@@ -16,6 +16,7 @@ class UnipinInGameTopup
     {
         try {
             $response = Unipin::request('/in-game-topup/list');
+
             return $response['game_list'];
         } catch (Exception $e) {
             return [
@@ -68,8 +69,8 @@ class UnipinInGameTopup
             return [
                 'status' => false,
                 'error' => [
-                    'message' => $e->getMessage()
-                ]
+                    'message' => $e->getMessage(),
+                ],
             ];
         }
     }
@@ -87,9 +88,10 @@ class UnipinInGameTopup
     {
         try {
             $validation_token = $this->validateUser($gameCode, $fields);
-            if (!$validation_token['status']) {
+            if (! $validation_token['status']) {
                 throw new Exception($validation_token['error']['message']);
             }
+
             return Unipin::request('/in-game-topup/order/create', [
                 'game_code' => $gameCode,
                 'validation_token' => $validation_token['validation_token'],
@@ -100,8 +102,8 @@ class UnipinInGameTopup
             return [
                 'status' => false,
                 'error' => [
-                    'message' => $e->getMessage()
-                ]
+                    'message' => $e->getMessage(),
+                ],
             ];
         }
     }
