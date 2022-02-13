@@ -4,7 +4,7 @@ namespace Buatin\LaravelUnipin;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Buatin\LaravelUnipin\Commands\LaravelUnipinCommand;
+use Buatin\LaravelUnipin\Commands\UnipinFetchGame;
 
 class LaravelUnipinServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +18,12 @@ class LaravelUnipinServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-unipin')
             ->hasConfigFile()
-            ->hasMigration('create_laravel-unipin_table')
-            ->hasCommand(LaravelUnipinCommand::class);
+            ->hasMigrations([
+                'create_unipin_game_products_table',
+                'create_unipin_game_product_denominations_table',
+                'create_unipin_game_product_fields_table',
+            ])
+            ->hasCommand(UnipinFetchGame::class);
     }
 
     public function registeringPackage()

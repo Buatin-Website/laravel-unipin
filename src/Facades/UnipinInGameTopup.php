@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Buatin\LaravelUnipin\UnipinInGameTopup
+ * @method static getGameList()
+ * @method static getGameDetail(string $string)
+ * @method static validateUser(string $string, array $fields = [])
+ * @method static createOrder(string $referenceNo, string $gameCode, string $denomId, array $fields = [])
  */
 class UnipinInGameTopup extends Facade
 {
