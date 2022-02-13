@@ -38,7 +38,7 @@ class UnipinInGameTopup
         try {
             return Unipin::request('/in-game-topup/detail', [
                 'game_code' => $gameCode,
-                'description' => true
+                'description' => true,
             ]);
         } catch (Exception $e) {
             return [
@@ -62,7 +62,7 @@ class UnipinInGameTopup
         try {
             return Unipin::request('/in-game-topup/user/validate', [
                 'game_code' => $gameCode,
-                'fields' => $fields
+                'fields' => $fields,
             ]);
         } catch (Exception $e) {
             return [

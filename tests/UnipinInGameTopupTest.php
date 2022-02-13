@@ -21,7 +21,7 @@ it('can\'t get in game topup detail (game not found)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid Game Code',
-            'code' => 704
+            'code' => 704,
         ],
     ]);
 });
