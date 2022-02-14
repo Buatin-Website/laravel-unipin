@@ -24,7 +24,7 @@ class UnipinGameProduct extends Model
     protected $appends = [
         'name',
     ];
-    
+
     // Accessors & Mutators
     public function name(): Attribute
     {
@@ -34,7 +34,7 @@ class UnipinGameProduct extends Model
             },
         );
     }
-    
+
     // Relationships
     public function denominations(): HasMany
     {
