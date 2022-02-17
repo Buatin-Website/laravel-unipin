@@ -81,20 +81,25 @@ class UnipinInGameTopup
      * @param string $referenceNo
      * @param string $gameCode
      * @param string $denomId
+     * @param null $token
      * @param array $fields
      * @return array
      */
-    public function createOrder(string $referenceNo, string $gameCode, string $denomId, array $fields = []): array
+    public function createOrder(string $referenceNo, string $gameCode, string $denomId, $token = null, array $fields = []): array
     {
         try {
-            $validation_token = $this->validateUser($gameCode, $fields);
-            if (! $validation_token['status']) {
-                throw new Exception($validation_token['error']['message']);
+            if (is_null($token)) {
+                $validation_token = $this->validateUser($gameCode, $fields);
+                if (! $validation_token['status']) {
+                    throw new Exception($validation_token['error']['message']);
+                }
+                $token = $validation_token['validation_token'];
             }
 
+            // TODO: Check inquiry before create order
             return Unipin::request('/in-game-topup/order/create', [
                 'game_code' => $gameCode,
-                'validation_token' => $validation_token['validation_token'],
+                'validation_token' => $token,
                 'reference_no' => $referenceNo,
                 'denomination_id' => $denomId,
             ]);

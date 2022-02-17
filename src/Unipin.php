@@ -83,8 +83,9 @@ class Unipin
                 foreach ($gameDetail['denominations'] as $denomination) {
                     UnipinGameProductDenomination::updateOrCreate([
                         'game_product_id' => $gameProduct->id,
-                        'name' => $denomination['name'],
+                        'denom_id' => $denomination['id'],
                     ], [
+                        'name' => $denomination['name'],
                         'currency' => $denomination['currency'],
                         'amount' => $denomination['amount'],
                     ]);

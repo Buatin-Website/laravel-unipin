@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('unipin_game_product_denominations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('game_product_id')->constrained('unipin_game_products')->onDelete('cascade');
+            $table->integer('denom_id');
             $table->string('name');
             $table->string('currency');
             $table->float('amount', 15);

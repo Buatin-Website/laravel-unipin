@@ -12,6 +12,7 @@ class UnipinGameProductDenomination extends Model
     protected $table = 'unipin_game_product_denominations';
     protected $fillable = [
         'game_product_id',
+        'denom_id',
         'name',
         'currency',
         'amount',
