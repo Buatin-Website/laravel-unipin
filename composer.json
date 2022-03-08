@@ -1,72 +1,79 @@
 {
-    "name": "buatin/laravel-unipin",
-    "description": "Integrate laravel with Unipin",
-    "keywords": [
-        "buatin",
-        "laravel",
-        "laravel-unipin"
-    ],
-    "homepage": "https://github.com/buatin/laravel-unipin",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Buatin Website",
-            "email": "tolong@buatin.website",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^8.0",
-        "guzzlehttp/guzzle": "^7.4",
-        "illuminate/contracts": "^8.73",
-        "spatie/laravel-package-tools": "^1.9.2"
-    },
-    "require-dev": {
-        "nunomaduro/collision": "^5.10",
-        "nunomaduro/larastan": "^1.0",
-        "orchestra/testbench": "^6.22",
-        "pestphp/pest": "^1.21",
-        "pestphp/pest-plugin-faker": "^1.0",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ray": "^1.26"
-    },
-    "autoload": {
-        "psr-4": {
-            "Buatin\\LaravelUnipin\\": "src",
-            "Buatin\\LaravelUnipin\\Database\\Factories\\": "database/factories"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Buatin\\LaravelUnipin\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "phpstan/extension-installer": true,
-            "pestphp/pest-plugin": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Buatin\\LaravelUnipin\\LaravelUnipinServiceProvider"
-            ],
-            "aliases": {
-                "LaravelUnipin": "Buatin\\LaravelUnipin\\Facades\\LaravelUnipin"
-            }
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "buatin/laravel-unipin",
+  "description": "Integrate laravel with Unipin",
+  "keywords": [
+    "buatin",
+    "laravel",
+    "laravel-unipin"
+  ],
+  "homepage": "https://github.com/buatin/laravel-unipin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Buatin Website",
+      "email": "tolong@buatin.website",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "buatin/core": "v3.0.2",
+    "guzzlehttp/guzzle": "^7.4",
+    "illuminate/contracts": "^8.73",
+    "spatie/laravel-package-tools": "^1.9.2"
+  },
+  "require-dev": {
+    "nunomaduro/collision": "^5.10",
+    "nunomaduro/larastan": "^1.0",
+    "orchestra/testbench": "^6.22",
+    "pestphp/pest": "^1.21",
+    "pestphp/pest-plugin-faker": "^1.0",
+    "pestphp/pest-plugin-laravel": "^1.1",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpunit/phpunit": "^9.5",
+    "spatie/laravel-ray": "^1.26"
+  },
+  "autoload": {
+    "psr-4": {
+      "Buatin\\LaravelUnipin\\": "src",
+      "Buatin\\LaravelUnipin\\Database\\Factories\\": "database/factories"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Buatin\\LaravelUnipin\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Buatin\\LaravelUnipin\\LaravelUnipinServiceProvider"
+      ],
+      "aliases": {
+        "LaravelUnipin": "Buatin\\LaravelUnipin\\Facades\\LaravelUnipin"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://satis.buatin.website"
+    }
+  ]
 }
