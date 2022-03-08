@@ -38,6 +38,8 @@ class Unipin
             'timestamp' => $this->timestamp,
             'path' => $path,
             'auth' => $this->authInGameTopup(),
+        ])->withOptions([
+            'force_ip_resolve' => 'v4',
         ])->post($baseUrl . $path, $params);
 
         if ($response->failed()) {
