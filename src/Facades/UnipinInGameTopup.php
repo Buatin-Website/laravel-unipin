@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static getGameDetail(string $string)
  * @method static validateUser(string $string, array $fields = [])
  * @method static createOrder(string $referenceNo, string $gameCode, string $denomId, array $fields = [])
+ * @method static orderInquiry(string $referenceNo)
  */
 class UnipinInGameTopup extends Facade
 {

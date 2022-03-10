@@ -144,3 +144,23 @@ it('can create order', function () {
         'status' => true,
     ])->toBeArray();
 });
+
+it('can\'t get order inquiry (transaction not found)', function () {
+    $orderInquiry = UnipinInGameTopup::orderInquiry(faker()->uuid);
+
+    expect($orderInquiry)->toMatchArray([
+        'status' => false,
+        'error' => [
+            'message' => 'Transaction not found',
+            'code' => 716,
+        ],
+    ]);
+});
+
+it('can get order inquiry', function () {
+    $orderInquiry = UnipinInGameTopup::orderInquiry('339616-');
+
+    expect($orderInquiry)->toMatchArray([
+        'status' => true,
+    ])->toBeArray();
+});

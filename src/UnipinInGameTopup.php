@@ -4,6 +4,8 @@ namespace Buatin\LaravelUnipin;
 
 use Buatin\LaravelUnipin\Facades\Unipin;
 use Exception;
+use GuzzleHttp\Promise\PromiseInterface;
+use Illuminate\Http\Client\Response;
 
 class UnipinInGameTopup
 {
@@ -102,6 +104,28 @@ class UnipinInGameTopup
                 'validation_token' => $token,
                 'reference_no' => $referenceNo,
                 'denomination_id' => $denomId,
+            ]);
+        } catch (Exception $e) {
+            return [
+                'status' => false,
+                'error' => [
+                    'message' => $e->getMessage(),
+                ],
+            ];
+        }
+    }
+
+    /**
+     * Get Order Detail
+     *
+     * @param string $referenceNo
+     * @return array|PromiseInterface|Response|mixed
+     */
+    public function orderInquiry(string $referenceNo): mixed
+    {
+        try {
+            return Unipin::request('/in-game-topup/order/inquiry', [
+                'reference_no' => $referenceNo,
             ]);
         } catch (Exception $e) {
             return [
