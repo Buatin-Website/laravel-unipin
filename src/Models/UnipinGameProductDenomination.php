@@ -3,6 +3,7 @@
 namespace Buatin\LaravelUnipin\Models;
 
 use Buatin\LaravelUnipin\Traits\FormatDates;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -21,5 +22,15 @@ class UnipinGameProductDenomination extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(UnipinGameProduct::class, 'game_product_id');
+    }
+
+    // Accessor & Mutator
+    public function code(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                return $this->product->game_code . '_' . $this->denom_id;
+            },
+        );
     }
 }
