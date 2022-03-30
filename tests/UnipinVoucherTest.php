@@ -51,7 +51,7 @@ it('can\'t create order (Invalid Voucher Code)', function () {
         'status' => false,
         'error' => [
             'message' => 'Item not found',
-            'error_code' => 707
+            'error_code' => 707,
         ],
     ]);
 });
@@ -67,7 +67,7 @@ it('can\'t create order (Out Of Stock)', function () {
         'status' => false,
         'error' => [
             'message' => 'Out Of Stock',
-            'error_code' => 705
+            'error_code' => 705,
         ],
     ]);
 });

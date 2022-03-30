@@ -32,7 +32,7 @@ class Unipin
         $this->path = $path;
 
         $baseUrl = config('unipin.base_url');
-        if (!str_ends_with($baseUrl, '/')) {
+        if (! str_ends_with($baseUrl, '/')) {
             $baseUrl .= '/';
         }
 
@@ -81,7 +81,7 @@ class Unipin
                 ]);
 
                 $gameDetail = UnipinInGameTopup::getGameDetail($game['game_code']);
-                if (!$gameDetail['status']) {
+                if (! $gameDetail['status']) {
                     continue;
                 }
 
@@ -131,7 +131,7 @@ class Unipin
         $this->timestamp = time();
 
         $baseUrl = config('unipin.base_url');
-        if (!str_ends_with($baseUrl, '/')) {
+        if (! str_ends_with($baseUrl, '/')) {
             $baseUrl .= '/';
         }
 
@@ -144,11 +144,13 @@ class Unipin
             case UnipinVoucher::TYPE_LIST:
             case UnipinVoucher::TYPE_STOCK:
                 $data['signature'] = hash('sha256', $this->apiKey . $this->timestamp . $this->secretKey);
+
                 break;
 
             case UnipinVoucher::TYPE_DETAIL:
                 $data['signature'] = hash('sha256', $this->apiKey . $this->timestamp . $this->secretKey);
                 $data['voucher_code'] = $queryData['voucher_code'];
+
                 break;
 
             case UnipinVoucher::TYPE_REQUEST:
@@ -156,16 +158,19 @@ class Unipin
                 $data['denomination_code'] = $queryData['voucher_code'];
                 $data['quantity'] = $queryData['qty'];
                 $data['reference_no'] = $queryData['reference_no'];
+
                 break;
 
             case UnipinVoucher::TYPE_INQUIRY:
                 $data['signature'] = hash('sha256', $this->apiKey . $queryData['reference_no'] . $this->secretKey);
                 $data['reference_no'] = $queryData['reference_no'];
+
                 break;
 
             case UnipinVoucher::TYPE_BALANCE:
                 $data['signature'] = hash('sha256', $this->apiKey . $this->secretKey);
                 unset($data['logid']);
+
                 break;
         }
 
@@ -183,6 +188,7 @@ class Unipin
     public function fetchVoucher()
     {
         DB::beginTransaction();
+
         try {
             $voucherList = \Buatin\LaravelUnipin\Facades\UnipinVoucher::getVoucherList();
             foreach ($voucherList as $voucher) {
@@ -194,7 +200,7 @@ class Unipin
                 ]);
 
                 $voucherDetail = \Buatin\LaravelUnipin\Facades\UnipinVoucher::getVoucherDetail($voucher['voucher_code']);
-                if (!$voucherDetail['status']) {
+                if (! $voucherDetail['status']) {
                     continue;
                 }
 
@@ -211,6 +217,7 @@ class Unipin
             }
 
             DB::commit();
+
             return [
                 'status' => true,
                 'message' => 'Successfully updated voucher list',
