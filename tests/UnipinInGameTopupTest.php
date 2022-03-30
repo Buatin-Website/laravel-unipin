@@ -105,6 +105,7 @@ it('can\'t create order (Invalid Game Code)', function () {
         'status' => false,
         'error' => [
             'message' => 'Invalid Game Code',
+            'code' => 704
         ],
     ]);
 });
