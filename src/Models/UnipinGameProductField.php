@@ -6,6 +6,9 @@ use Buatin\LaravelUnipin\Traits\FormatDates;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @method static updateOrCreate(array $array, array $array1)
+ */
 class UnipinGameProductField extends Model
 {
     use FormatDates;
