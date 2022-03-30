@@ -28,7 +28,7 @@ class LaravelUnipinServiceProvider extends PackageServiceProvider
             ])
             ->hasCommands([
                 UnipinFetchGame::class,
-                UnipinFetchVoucher::class
+                UnipinFetchVoucher::class,
             ]);
     }
 
