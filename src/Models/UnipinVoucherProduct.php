@@ -23,6 +23,6 @@ class UnipinVoucherProduct extends Model
     // Relationships
     public function denominations(): HasMany
     {
-        return $this->hasMany(UnipinVoucherProduct::class, 'voucher_product_id');
+        return $this->hasMany(UnipinVoucherProductDenomination::class, 'voucher_product_id');
     }
 }
