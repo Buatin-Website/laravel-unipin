@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": "^8.0",
-    "buatin/core": "v3.0.2",
+    "buatin/core": "^v3.0.3",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/contracts": "^8.73",
     "spatie/laravel-package-tools": "^1.9.2"
